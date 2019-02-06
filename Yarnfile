@@ -1,0 +1,30 @@
+{
+      "name": "nlp-service",
+      "version": "1.0.0",
+      "components": [
+      {
+      "name": "nlp",
+      "number_of_containers": 1,
+      "artifact": {
+        "id": "localhost:6666/nlp_image:latest",
+        "type": "DOCKER"
+      },
+      "launch_command": "",
+      "resource": {
+        "cpus": "12",
+        "memory": "12000"
+      },
+      "configuration": {
+        "properties" : {
+            "yarn.service.am.java.opts" : "-Xmx4096m"
+        },
+        "env": {
+            "YARN_CONTAINER_RUNTIME_DOCKER_RUN_OVERRIDE_DISABLE": "true",
+            "YARN_CONTAINER_RUNTIME_DOCKER_CONTAINER_NETWORK": "bridge",
+            "YARN_CONTAINER_RUNTIME_DOCKER_MOUNTS": "/Downloads/chatbotnifiyarn:/home/ubuntu:rw",
+            "YARN_CONTAINER_RUNTIME_DOCKER_RUN_PRIVILEGED_CONTAINER":"true"
+          }
+      }
+    }
+  ]
+}
