@@ -20,6 +20,8 @@ d) In yarn set Docker Trusted Registries to localhost:6666 and restart yarn
 
 3) git clone https://github.com/vnarayaj/chatbotnifiyarn.git
 
+4) cd chatbotnifiyarn. unzip starspace_embedding.tsv.zip
+
 
 4) build docker image 
 cd chatbotnifiyarn
