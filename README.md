@@ -1,3 +1,18 @@
+This is a demo of a chat bot running on docker on yarn. The user interacts with the bot using telegram messenger. The flow is 
+
+Telegram messenger <-> Nifi <->bot.
+
+
+The bot does the following
+
+Step 1 - use a tf-idf vectoriser and vectorise the incoming message
+Step 2 - use the vectorised message with a random forest classifier to predict the intent of the conversation as just general conversation or a technical conversation.
+Step 3- use a onevsrestclassifier wrapped on a logistic regression classifier to identify the tag for the technical conversation (tags are obtained from a dump of stack overflow discussions)
+Step 4 - compute cosine similarity between message and stack overflow dump to identify thread
+Step 5 - return thread
+
+to setup the demo follow the below instructions
+
 1) enable docker on yarn
 a) Yarn>config>settings> docker runtime>enabled
 b) yarn.nodemanager.container-executor.class=org.apache.hadoop.yarn.server.nodemanager.LinuxContainerExecutor
